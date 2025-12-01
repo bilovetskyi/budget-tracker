@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2 style='text-align:center;'>Login</h2>
+<div class='card'>
+    {% if msg %}<p style='color:red; text-align:center;'>{{msg}}</p>{% endif %}
+    <form method='POST'>
+        <input name='username' placeholder='Username' required>
+        <input type='password' name='password' placeholder='Password' required>
+        <button class='btn'>Login</button>
+    </form>
+    <p style='text-align:center;'><a href='/register'>Register</a></p>
+</div>
+{% endblock %}
