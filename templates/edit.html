@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="header-bar">
+    <h1>Edit Transaction</h1>
+    <a href="/" class="btn" style="width: auto; background-color: gray;">Cancel</a>
+</div>
+
+<div class='card'>
+    <form method='POST'>
+        <label>Date</label>
+        <input type='date' name='date' value='{{row.date}}' required>
+        
+        <label>Amount</label>
+        <input type='number' name='amount' step='0.01' value='{{row.amount}}' required>
+        
+        <label>Category</label>
+        <select name='category' required>
+            <option value="Food" {% if row.category == 'Food' %}selected{% endif %}>Food</option>
+            <option value="Transport" {% if row.category == 'Transport' %}selected{% endif %}>Transport</option>
+            <option value="Rent" {% if row.category == 'Rent' %}selected{% endif %}>Rent</option>
+            <option value="Entertainment" {% if row.category == 'Entertainment' %}selected{% endif %}>Entertainment</option>
+            <option value="Salary" {% if row.category == 'Salary' %}selected{% endif %}>Salary</option>
+            <option value="Other" {% if row.category == 'Other' %}selected{% endif %}>Other</option>
+        </select>
+
+        <label>Type</label>
+        <select name='type'>
+            <option value='income' {% if row.type == 'income' %}selected{% endif %}>Income</option>
+            <option value='expense' {% if row.type == 'expense' %}selected{% endif %}>Expense</option>
+        </select>
+        
+        <label>Description</label>
+        <input name='description' value='{{row.description}}'>
+        
+        <button class='btn'>Save Changes</button>
+    </form>
+</div>
+{% endblock %}

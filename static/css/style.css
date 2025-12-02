@@ -1,0 +1,192 @@
+/* --------------------------
+   1. Theme Variables
+--------------------------- */
+:root {
+    --bg-light: #f5f5f7;
+    --card-light: #ffffff;
+    --text-light: #000000;
+    --border-light: #e0e0e0;
+
+    --bg-dark: #1c1c1e;
+    --card-dark: #2c2c2e;
+    --text-dark: #f5f5f7;
+    --border-dark: #3a3a3c;
+}
+
+body[data-theme='light'] {
+    --bg: var(--bg-light); --card: var(--card-light);
+    --text: var(--text-light); --border: var(--border-light);
+}
+
+body[data-theme='dark'] {
+    --bg: var(--bg-dark); --card: var(--card-dark);
+    --text: var(--text-dark); --border: var(--border-dark);
+}
+
+/* --------------------------
+   2. Global Layout
+--------------------------- */
+body {
+    margin: 0; padding: 20px;
+    background: var(--bg);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    color: var(--text);
+    transition: background .3s, color .3s;
+}
+
+a { color: #0071e3; text-decoration: none; }
+
+.card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    padding: 20px;
+    max-width: 650px;
+    margin: 20px auto;
+    border-radius: 20px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+    transition: background .3s, border .3s;
+}
+
+/* --------------------------
+   3. Forms & Inputs
+--------------------------- */
+input, select {
+    width: 100%;
+    padding: 12px;
+    margin: 8px 0;
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    background: var(--card);
+    color: var(--text);
+    box-sizing: border-box;
+}
+
+.btn {
+    width: 100%;
+    padding: 12px;
+    background: #0071e3;
+    border: none;
+    border-radius: 12px;
+    color: white;
+    cursor: pointer;
+    font-size: 1rem;
+    display: inline-block;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+/* --------------------------
+   4. Header & Navigation
+--------------------------- */
+.header-bar {
+    display: flex; justify-content: space-between; align-items: center;
+    margin-bottom: 20px;
+}
+.header-bar h1 { margin: 0; }
+
+.user-menu { position: relative; display: inline-block; cursor: pointer; }
+
+.user-icon { width: 40px; height: 40px; fill: var(--text); transition: opacity 0.2s; }
+.user-icon:hover { opacity: 0.7; }
+
+.dropdown-content {
+    display: none;
+    position: absolute; right: 0; top: 50px;
+    background-color: var(--card);
+    min-width: 250px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    border-radius: 12px; border: 1px solid var(--border);
+    padding: 15px; z-index: 100;
+}
+.user-menu:hover .dropdown-content { display: block; }
+
+.dropdown-content p {
+    text-align: center; font-weight: bold;
+    border-bottom: 1px solid var(--border); padding-bottom: 10px; margin-bottom: 10px;
+}
+
+/* Shared style for ANY button inside the dropdown */
+.dropdown-content .menu-btn {
+    width: 100%; 
+    box-sizing: border-box; 
+    display: block;         
+    padding: 10px 15px;     
+    margin-bottom: 8px;     
+    
+    font-size: 0.95rem;
+    font-family: inherit;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    color: white;
+    line-height: 1.2;
+}
+
+.theme-btn { background-color: #0071e3; }
+.theme-btn:hover { background-color: #005bb5; }
+
+.export-btn { background-color: #34c759; }
+.export-btn:hover { background-color: #2da84e; }
+
+/* We renamed this to just .logout-btn to be cleaner */
+.logout-btn { background-color: #ff3b30; }
+.logout-btn:hover { background-color: #d63028; }
+
+/* --------------------------
+   5. Tables & Action Buttons
+--------------------------- */
+table { width: 100%; border-collapse: collapse; }
+td, th { padding: 12px; border-bottom: 1px solid var(--border); text-align: left; }
+.table-container { overflow-x: auto; }
+
+.action-cell { display: flex; align-items: center; gap: 8px; }
+.delete-form { margin: 0; padding: 0; display: flex; }
+
+.icon-btn {
+    display: flex; align-items: center; justify-content: center;
+    width: 32px; height: 32px;
+    border-radius: 6px; border: none;
+    cursor: pointer; padding: 0;
+    transition: background-color 0.2s;
+}
+.icon-btn svg { width: 18px; height: 18px; fill: white; }
+
+.edit-btn { background-color: #ff9500; }
+.edit-btn:hover { background-color: #e08b00; }
+
+.delete-btn { background-color: #ff3b30; }
+.delete-btn:hover { background-color: #d63028; }
+
+/* --------------------------
+   6. Utilities & Specific Cards
+--------------------------- */
+.flash-message {
+    background: #34c759; color: white;
+    padding: 15px; border-radius: 15px;
+    text-align: center; max-width: 650px;
+    margin: 0 auto 20px auto;
+    font-weight: 500;
+    box-shadow: 0 4px 12px rgba(52, 199, 89, 0.3);
+}
+
+/* NEW: Cleaned up Filter Card */
+.filter-card { text-align: center; padding: 10px; }
+.filter-label { font-weight: bold; margin-right: 10px; }
+.filter-select { width: auto; display: inline-block; }
+
+/* NEW: Cleaned up Chart */
+.chart-wrapper { max-width: 400px; margin: 0 auto; }
+
+.balance-box {
+    background: var(--bg); padding: 15px; border-radius: 12px;
+    text-align: center; margin-bottom: 15px;
+    border: 1px solid var(--border);
+}
+.balance-label { font-size: 0.9rem; opacity: 0.7; display: block; margin-bottom: 5px; }
+.balance-amount { font-size: 2rem; font-weight: bold; }
+
+.text-green { color: #34c759; }
+.text-red { color: #ff3b30; }
+.divider { border: 0; border-top: 1px solid var(--border); margin: 15px 0; }
