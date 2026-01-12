@@ -1,19 +1,18 @@
-# 1. Standard Python Imports
+#Standard Python Imports
 import csv
 import io
 from datetime import datetime
 
-# 2. Third-Party Imports (Flask & Werkzeug)
+#Third-Party Imports (Flask & Werkzeug)
 from flask import Flask, request, redirect, render_template, session, flash, make_response
 from werkzeug.security import generate_password_hash, check_password_hash
 
-# 3. Local Imports
+# Imports
 from db import get_conn, init_db
 
 app = Flask(__name__)
-app.secret_key = "supersecretkey" # In a real app, hide this in a .env file!
+app.secret_key = "supersecretkey" 
 
-# Initialize DB on startup
 init_db()
 
 # ---------------------------------------------------

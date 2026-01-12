@@ -130,7 +130,6 @@ input, select {
 .export-btn { background-color: #34c759; }
 .export-btn:hover { background-color: #2da84e; }
 
-/* We renamed this to just .logout-btn to be cleaner */
 .logout-btn { background-color: #ff3b30; }
 .logout-btn:hover { background-color: #d63028; }
 
@@ -171,12 +170,10 @@ td, th { padding: 12px; border-bottom: 1px solid var(--border); text-align: left
     box-shadow: 0 4px 12px rgba(52, 199, 89, 0.3);
 }
 
-/* NEW: Cleaned up Filter Card */
 .filter-card { text-align: center; padding: 10px; }
 .filter-label { font-weight: bold; margin-right: 10px; }
 .filter-select { width: auto; display: inline-block; }
 
-/* NEW: Cleaned up Chart */
 .chart-wrapper { max-width: 400px; margin: 0 auto; }
 
 .balance-box {
